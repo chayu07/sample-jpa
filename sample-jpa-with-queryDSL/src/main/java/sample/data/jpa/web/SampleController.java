@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sample.data.jpa.domain.City;
 import sample.data.jpa.domain.Hotel;
@@ -41,7 +42,7 @@ public class SampleController {
     }
 
 
-    @RequestMapping("/bath/hotels")
+    @RequestMapping("/hotels")
     @ResponseBody
     public List<Hotel> findAllHotel() {
 
@@ -52,18 +53,10 @@ public class SampleController {
         return hotels;
     }
 
-    @RequestMapping("/bath/hotel/modify")
+    @RequestMapping("/hotel/modify")
     @ResponseBody
     @Transactional
-    public Hotel modifyHotel() throws Exception{
-        City city = cityService.getCity("Bath", "UK");
-        List<Hotel> hotels = cityService.getHotels(city);
-
-        Hotel hotel = hotels.get(0);
-        System.out.println(hotel.getAddress());
-        cityService.modifyHotelAddress(hotel, "serivce");
-        System.out.println(hotel.getAddress());
-
-        return hotel;
+    public Hotel modifyHotel(@RequestParam String hotelName, @RequestParam String newName ) throws Exception{
+        return cityService.modifyHotelAddress(hotelName, newName);
     }
 }

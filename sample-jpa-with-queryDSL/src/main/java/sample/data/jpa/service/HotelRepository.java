@@ -42,4 +42,6 @@ interface HotelRepository extends JpaRepository<Hotel, Long> {
 	@Query("select new sample.data.jpa.domain.RatingCount(r.rating, count(r)) "
 			+ "from Review r where r.hotel = ?1 group by r.rating order by r.rating DESC")
 	List<RatingCount> findRatingCounts(Hotel hotel);
+
+    public Hotel findByName(String hotelName);
 }

@@ -33,5 +33,5 @@ public interface CityService {
 
 	List<Hotel> getHotels(City city);
 
-    public void modifyHotelAddress(Hotel hotel, String name);
+    public Hotel modifyHotelAddress(String hotelId, String name);
 }

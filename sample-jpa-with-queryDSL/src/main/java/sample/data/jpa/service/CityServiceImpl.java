@@ -80,8 +80,10 @@ class CityServiceImpl implements CityService {
 	}
 
     @Override
-    public void modifyHotelAddress(Hotel hotel, String newName) {
+    public Hotel modifyHotelAddress(String hotelName, String newName) {
+        Hotel hotel = hotelRepository.findByName(hotelName);
         hotel.modifyAddress(newName);
         hotelRepository.save(hotel);
+        return hotel;
     }
 }
