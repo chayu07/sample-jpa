@@ -86,4 +86,14 @@ class CityServiceImpl implements CityService {
         hotelRepository.save(hotel);
         return hotel;
     }
+
+    @Override
+    public Hotel findHotel(String hotelName) {
+        return hotelRepository.findByName(hotelName);
+    }
+
+    @Override
+    public Hotel findHotel(String hotelName, String cityName) {
+        return hotelRepository.findByCityAndName(cityRepository.findByName(cityName), hotelName);
+    }
 }

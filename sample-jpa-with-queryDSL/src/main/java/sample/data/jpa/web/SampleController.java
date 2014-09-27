@@ -34,14 +34,6 @@ public class SampleController {
     @Autowired
     private CityService cityService;
 
-    @RequestMapping("/helloWorld")
-    @ResponseBody
-    @Transactional(readOnly = true)
-    public String helloWorld() {
-        return this.cityService.getCity("Bath", "UK").getName();
-    }
-
-
     @RequestMapping("/hotels")
     @ResponseBody
     public List<Hotel> findAllHotel() {
@@ -58,5 +50,21 @@ public class SampleController {
     @Transactional
     public Hotel modifyHotel(@RequestParam String hotelName, @RequestParam String newName ) throws Exception{
         return cityService.modifyHotelAddress(hotelName, newName);
+    }
+
+    @RequestMapping("/hotel")
+    @ResponseBody
+    @Transactional
+    public Hotel findHotel(@RequestParam String hotelName, @RequestParam String cityName ) throws Exception{
+        return cityService.findHotel(hotelName, cityName);
+    }
+
+    @RequestMapping("/commitTest")
+    @ResponseBody
+    public Hotel commitTest(@RequestParam String hotelName, @RequestParam String newName ) throws Exception{
+        Hotel hotel = cityService.modifyHotelAddress(hotelName, newName);
+        hotel.modifyAddress("controller");
+
+        return hotel;
     }
 }

@@ -34,4 +34,8 @@ public interface CityService {
 	List<Hotel> getHotels(City city);
 
     public Hotel modifyHotelAddress(String hotelId, String name);
+
+    Hotel findHotel(String hotelName);
+
+    Hotel findHotel(String hotelName, String cityName);
 }

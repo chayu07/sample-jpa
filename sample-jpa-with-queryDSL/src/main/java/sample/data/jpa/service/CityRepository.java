@@ -32,4 +32,5 @@ interface CityRepository extends Repository<City, Long> {
 	City findByNameAndCountryAllIgnoringCase(String name, String country);
 
 
+    City findByName(String cityName);
 }
