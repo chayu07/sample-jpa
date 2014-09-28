@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sample.data.jpa.domain.City;
 import sample.data.jpa.domain.Hotel;
 import sample.data.jpa.service.CityService;
+import sample.data.jpa.service.HotelService;
 
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class SampleController {
 
     @Autowired
     private CityService cityService;
+
+    @Autowired
+    private HotelService hotelService;
 
     @RequestMapping("/hotels")
     @ResponseBody

@@ -20,6 +20,8 @@ insert into review(hotel_id, idx, check_in_date, rating, trip_type, title, detai
 -- Sydney
 insert into city(country, name, state, map) values ('Australia', 'Sydney', 'New South Wales', '-33.868901, 151.207091')
 insert into hotel(city_id, name, address, zip) values (3, 'Swissotel', '68 Market Street', '2000')
+insert into review(hotel_id, idx, check_in_date, rating, trip_type, title, details) values (3, 0, '2005-05-10', 2, 4, 'Pretty average', 'I stayed in 2005, the hotel was nice enough but nothing special.')
+insert into review(hotel_id, idx, check_in_date, rating, trip_type, title, details) values (3, 1, '2005-05-10', 2, 4, 'Pretty average', 'I stayed in 2005, the hotel was nice enough but nothing special.')
 
 
 -- =================================================================================================
