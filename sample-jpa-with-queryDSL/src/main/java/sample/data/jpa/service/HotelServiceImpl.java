@@ -88,6 +88,11 @@ class HotelServiceImpl implements HotelService {
         return hotel;
     }
 
+    @Override
+    public Hotel getHotel(Long id) {
+        return hotelRepository.findOne(id);
+    }
+
     private static class ReviewsSummaryImpl implements ReviewsSummary {
 
 		private final Map<Rating, Long> ratingCount;

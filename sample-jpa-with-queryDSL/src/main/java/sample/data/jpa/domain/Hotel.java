@@ -17,15 +17,11 @@
 package sample.data.jpa.domain;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -53,7 +49,8 @@ public class Hotel implements Serializable {
 	private String zip;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
-	private Set<Review> reviews;
+    @MapKey(name="id")
+	private Map<Long, Review> reviews;
 
 	protected Hotel() {
 	}
@@ -87,7 +84,7 @@ public class Hotel implements Serializable {
         return id;
     }
 
-    public Set<Review> getReviews() {
-        return reviews;
+    public Review findReviewById(Long id) {
+        return reviews.get(id);
     }
 }

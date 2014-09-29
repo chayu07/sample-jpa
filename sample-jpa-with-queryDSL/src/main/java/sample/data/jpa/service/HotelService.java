@@ -37,4 +37,6 @@ public interface HotelService {
 	ReviewsSummary getReviewSummary(Hotel hotel);
 
     Hotel findReference(String hotelId);
+
+    Hotel getHotel(Long aLong);
 }

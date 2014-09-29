@@ -84,10 +84,10 @@ public class SampleController {
 
     @RequestMapping("/review/hotel")
     @ResponseBody
+    @Transactional
     public String findReviewById(@RequestParam String reviewId, @RequestParam String hotelId) throws Exception{
-        Hotel hotel = hotelService.findReference(hotelId);
-        Review review = hotelService.getReview(hotel, Integer.parseInt(reviewId));
-
+        Hotel hotel = hotelService.getHotel(Long.valueOf(hotelId));
+        Review review = hotel.findReviewById(Long.valueOf(reviewId));
         return review.getDetails();
     }
 }
