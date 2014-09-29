@@ -12,10 +12,13 @@
 
 1. ORM 개념발표
 2. 간단한 코드 설명
- 2.1 도메인 클래스의 설정에 대해 설명
- 2.2 Repository의 구현에 대해 설명
+ - Repository의 구현에 대해 설명
+    - Spring Data for JPA document: http://docs.spring.io/spring-data/data-jpa/docs/current/reference/html/#jpa.query-methods
 3. 흔히 오해하는 부분에 대한 설명
- 3.1 OneToMany관계시 자식관계의 데이터를 전부로딩해야한다고 생각하는 경우
- 3.2 자식 객체에게 부모의  ID만 전달하려 할때 부모객체의 모든 데이터를 불러와햐 한다고 생각하는 경우
- 3.3 JPA 세션 종료 후 객체의 상태를 변경하면 DB에 반영된다고 생각하는 경우
-  
+ - OneToMany관계시 자식관계의 데이터를 전부로딩해야한다고 생각하는 경우
+    - http://localhost:8080/review/hotel?reviewId=1&hotelId=2
+ - 자식 객체에게 부모의  ID만 전달하려 할때 부모객체의 모든 데이터를 불러와햐 한다고 생각하는 경우
+    - http://localhost:8080/hotel/findId?hotelId=27
+ - JPA 세션 종료 후 객체의 상태를 변경하면 DB에 반영된다고 생각하는 경우
+    - 실행: http://localhost:8080/commitTest?hotelName=Conrad%20Treasury%20Place&newName=hahahahahah
+    - 결과확인: http://localhost:8080/hotel?hotelName=Conrad%20Treasury%20Place&cityName=Brisbane
