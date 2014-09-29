@@ -12,7 +12,6 @@
 
 1. ORM 개념발표
 2. 간단한 코드 설명
- - 도메인 클래스의 설정에 대해 설명
  - Repository의 구현에 대해 설명
     - Spring Data for JPA document: http://docs.spring.io/spring-data/data-jpa/docs/current/reference/html/#jpa.query-methods
 3. 흔히 오해하는 부분에 대한 설명
