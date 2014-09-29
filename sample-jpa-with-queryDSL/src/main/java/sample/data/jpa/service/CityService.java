@@ -38,4 +38,6 @@ public interface CityService {
     Hotel findHotel(String hotelName);
 
     Hotel findHotel(String hotelName, String cityName);
+
+    City findReference(String cityId);
 }

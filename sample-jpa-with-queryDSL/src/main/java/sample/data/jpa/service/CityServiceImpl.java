@@ -27,12 +27,13 @@ import org.springframework.util.StringUtils;
 import sample.data.jpa.domain.City;
 import sample.data.jpa.domain.Hotel;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Component("cityService")
 @Transactional
 class CityServiceImpl implements CityService {
-
 	private final CityRepository cityRepository;
 
 	private final HotelRepository hotelRepository;
@@ -50,7 +51,7 @@ class CityServiceImpl implements CityService {
 		String name = criteria.getName();
 
 		if (!StringUtils.hasLength(name)) {
-			return this.cityRepository.findAll(null);
+//			return this.cityRepository.findAll();
 		}
 
 		String country = "";
@@ -94,6 +95,13 @@ class CityServiceImpl implements CityService {
 
     @Override
     public Hotel findHotel(String hotelName, String cityName) {
-        return hotelRepository.findByCityAndName(cityRepository.findByName(cityName), hotelName);
+        Hotel hotel = hotelRepository.findByCityAndName(cityRepository.findByName(cityName), hotelName);
+
+        return hotel;
+    }
+
+    @Override
+    public City findReference(String cityId) {
+        return cityRepository.getOne(Long.parseLong(cityId));
     }
 }

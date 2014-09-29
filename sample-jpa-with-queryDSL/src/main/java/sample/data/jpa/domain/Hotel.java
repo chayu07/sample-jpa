@@ -82,4 +82,12 @@ public class Hotel implements Serializable {
     public void modifyAddress(String newAddress) {
         this.address = newAddress;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
 }
