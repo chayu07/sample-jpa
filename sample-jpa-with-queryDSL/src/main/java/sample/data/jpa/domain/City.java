@@ -18,10 +18,7 @@ package sample.data.jpa.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class City implements Serializable {
@@ -73,4 +70,8 @@ public class City implements Serializable {
 	public String toString() {
 		return getName() + "," + getState() + "," + getCountry();
 	}
+
+    public Long getId() {
+        return id;
+    }
 }

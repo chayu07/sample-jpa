@@ -65,6 +65,7 @@ class HotelServiceImpl implements HotelService {
 	@Override
 	public Review getReview(Hotel hotel, int reviewNumber) {
 		Assert.notNull(hotel, "Hotel must not be null");
+
 		return this.reviewRepository.findByHotelAndIndex(hotel, reviewNumber);
 	}
 
@@ -80,7 +81,19 @@ class HotelServiceImpl implements HotelService {
 		return new ReviewsSummaryImpl(ratingCounts);
 	}
 
-	private static class ReviewsSummaryImpl implements ReviewsSummary {
+    @Override
+    public Hotel findReference(String hotelId) {
+        Hotel hotel = hotelRepository.getOne(Long.parseLong(hotelId));
+
+        return hotel;
+    }
+
+    @Override
+    public Hotel getHotel(Long id) {
+        return hotelRepository.findOne(id);
+    }
+
+    private static class ReviewsSummaryImpl implements ReviewsSummary {
 
 		private final Map<Rating, Long> ratingCount;
 

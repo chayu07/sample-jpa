@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sample.data.jpa.domain.City;
 import sample.data.jpa.domain.Hotel;
+import sample.data.jpa.domain.Review;
 import sample.data.jpa.service.CityService;
 import sample.data.jpa.service.HotelService;
 
@@ -70,5 +71,23 @@ public class SampleController {
         hotel.modifyAddress("controller");
 
         return hotel;
+    }
+
+    @RequestMapping("/hotel/findId")
+    @ResponseBody
+    public String findHotelById(@RequestParam String hotelId) throws Exception{
+        Hotel hotel = hotelService.findReference(hotelId);
+        String id = Long.toString(hotel.getId());
+
+        return id;
+    }
+
+    @RequestMapping("/review/hotel")
+    @ResponseBody
+    @Transactional
+    public String findReviewById(@RequestParam String reviewId, @RequestParam String hotelId) throws Exception{
+        Hotel hotel = hotelService.getHotel(Long.valueOf(hotelId));
+        Review review = hotel.findReviewById(Long.valueOf(reviewId));
+        return review.getDetails();
     }
 }
