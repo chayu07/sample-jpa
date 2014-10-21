@@ -64,8 +64,13 @@ public class ListModule {
         }
 
         public void foreach(Function1Void<T> f) {
+//            수정
             tail().foreach(f);
             f.apply(head());
+
+//            원본
+//            tail().foreach(f);
+//            f.apply(head());
         }
 
         @Override
