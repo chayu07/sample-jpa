@@ -1,11 +1,8 @@
-/**
+package functionalPrograming; /**
  * Created by hoons on 2014-10-14.
  */
 import java.util.*;
 
-import option.None;
-import option.Option;
-import option.Some;
 import org.junit.*;
 import static org.junit.Assert.*;
 

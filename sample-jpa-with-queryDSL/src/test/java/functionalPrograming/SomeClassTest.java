@@ -1,16 +1,9 @@
-/**
+package functionalPrograming; /**
  * Created by hoons on 2014-10-14.
  */
 
-import option.None;
-import option.Option;
-import option.Some;
-import option.SomeClass;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
