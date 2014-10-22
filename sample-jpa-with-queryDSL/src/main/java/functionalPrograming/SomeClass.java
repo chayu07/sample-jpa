@@ -1,4 +1,4 @@
-package option;
+package functionalPrograming;
 
 /**
  * Created by hoons on 2014-10-14.
@@ -6,7 +6,7 @@ package option;
 public class SomeClass {
 
     private Option<String> option;
-//    option 반영 전
+//    functionalPrograming 반영 전
 //    public void someMethod(String someParameter) throws Exception {
 //        if(someParameter == null) throw new Exception();
 //

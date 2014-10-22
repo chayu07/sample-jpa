@@ -1,4 +1,4 @@
-package option;
+package functionalPrograming;
 
 /**
  * Created by hoons on 2014-10-14.
