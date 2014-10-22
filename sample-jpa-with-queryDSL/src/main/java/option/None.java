@@ -3,7 +3,7 @@ package option;
 /**
  * Created by hoons on 2014-10-14.
  */
-public class None<T> extends Option<T> {
+public final class None<T> extends Option<T> {
 
     public static class NoneHasNoValue extends RuntimeException {
     }

@@ -44,12 +44,13 @@ public class SomeClassTest {
     @Test
     public void 인자가_정상이면_전달받은_인자를_반환한다() throws Exception {
         //given
-        Option<String> someParameter = new Some<String>("Victor");
+        String expectedName = "Victor";
+        Option<String> someParameter = new Some<String>(expectedName);
 
         //when
         String name = someClass.someMethod(someParameter);
 
         //then
-        assertEquals("인자를 반환하지 않았다.", "Victor", name);
+        assertEquals("인자를 반환하지 않았다.", expectedName, name);
     }
 }

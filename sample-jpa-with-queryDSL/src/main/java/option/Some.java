@@ -3,7 +3,7 @@ package option;
 /**
  * Created by hoons on 2014-10-14.
  */
-public class Some<T> extends Option<T> {
+public final class Some<T> extends Option<T> {
     private final T value;
 
     public Some(T value) {
